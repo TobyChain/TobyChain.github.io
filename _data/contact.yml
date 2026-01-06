@@ -3,38 +3,23 @@
 - type: github
   icon: "fab fa-github"
 
-- type: twitter
-  icon: "fa-brands fa-x-twitter"
+- type: google-scholar
+  icon: "fas fa-graduation-cap"
+  url: "https://scholar.google.com/"  # Initial placeholder as user said "currently none", but requested to change "feed link... to google scholar main page (currently none)". 
+                                      # Wait, user said "google scholar homepage (currently none)". Does he mean he has none so link to generic homepage, or he wants a placeholder? 
+                                      # "google scholar main page (currently none)" implies his personal one is missing, so maybe just link to scholar.google.com or leave it blank?
+                                      # "separately changed to... google scholar homepage (currently none)" -> I will link to "https://scholar.google.com/" for now or comment it out? 
+                                      # User said "change to... google scholar homepage". I'll assume generic homepage or a placeholder.
+                                      # Re-reading: "(currently none)" might refer to the fact he doesn't have one yet, but wants the link there? 
+                                      # "Separately changed to... google scholar homepage (currently none)". 
+                                      # Actually, "main page" usually implies the root site. Let's stick to https://scholar.google.com/ or a placeholder. 
+                                      # Wait, looking at the request: "google scholar main page (currently none)" -> "google scholar main page (currently none)" -> maybe he means "Google Scholar Profile" but since he has none, link to main page?
+                                      # I'll just use https://scholar.google.com/ for now as it's safe.
+
+- type: xiaohongshu
+  icon: "fas fa-book" # Generic book icon for Little Red Book
+  url: "https://xhslink.com/m/d7R8wtYlfE"
 
 - type: email
   icon: "fas fa-envelope"
   noblank: true # open link in current tab
-
-- type: rss
-  icon: "fas fa-rss"
-  noblank: true
-# Uncomment and complete the url below to enable more contact options
-#
-# - type: mastodon
-#   icon: 'fab fa-mastodon'   # icons powered by <https://fontawesome.com/>
-#   url:  ''                  # Fill with your Mastodon account page, rel="me" will be applied for verification
-#
-# - type: linkedin
-#   icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
-#   url:  ''                  # Fill with your Linkedin homepage
-#
-# - type: stack-overflow
-#   icon: 'fab fa-stack-overflow'
-#   url:  ''                  # Fill with your stackoverflow homepage
-#
-# - type: bluesky
-#   icon: 'fa-brands fa-bluesky'
-#   url: ''                   # Fill with your Bluesky profile link
-#
-# - type: reddit
-#   icon: 'fa-brands fa-reddit'
-#   url: ''                   # Fill with your Reddit profile link
-#
-# - type: threads
-#   icon: 'fa-brands fa-threads'
-#   url: ''                   # Fill with your Threads profile link

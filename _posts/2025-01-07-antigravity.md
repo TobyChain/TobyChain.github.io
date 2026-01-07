@@ -1,5 +1,5 @@
 ---
-Title: Antigravity实践，逃离低额度Copilot和昂贵Cursor
+title: Antigravity实践，逃离低额度Copilot和昂贵Cursor
 layout: post
 date: 2025-01-07
 categories: [Blogging, TechTool]

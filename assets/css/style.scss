@@ -4,3 +4,133 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @import "main/variables";
 @import "main";
+
+/* ==========================================================================
+   Immersive Reading / "Swiss Style" Overrides
+   Design Goals: High Legibility, Less "App-like", Editorial Feel
+   ========================================================================== */
+
+/* Force Light Mode Aesthetics on HTML root or light mode */
+:root, html[data-mode="light"] {
+  /* --- Global Colors --- */
+  --main-bg: #FFFFFF;        /* Pure White Background */
+  --body-bg: #FFFFFF;
+  --text-color: #1A1A1A;     /* Deep Charcoal, not harsh black */
+  --heading-color: #111111;  /* Slightly darker for headings */
+  --muted-text-color: #666666;
+  
+  /* --- Accent Colors --- */
+  --link-color: #2E5C5A;     /* Retro Dark Green */
+  --link-hover-color: #1F403D;
+  --btn-btn-bg: #2E5C5A;
+  
+  /* --- Sidebar (Light & Integrated) --- */
+  --sidebar-bg: #FAFAFA;     /* Very subtle gray to distinguish from content */
+  --sidebar-border-right: 1px solid #EAEAEA;
+  --nav-key-color: #555555;  /* Dark gray for menu items */
+  --nav-hover-bg: #EAEAEA;
+  
+  /* --- Cards & Containers --- */
+  --card-bg: #FFFFFF;
+  --card-border-color: #EAEAEA;
+  --card-box-shadow: none;   /* Flatten the design */
+  
+  /* --- Topbar --- */
+  --topbar-bg: rgba(255, 255, 255, 0.95);
+  --search-wrapper-bg: #F0F0F0;
+  --search-wrapper-border-color: #E0E0E0;
+}
+
+/* --- Specific Structural Overrides --- */
+
+/* Sidebar: Make it light and fix text contrast */
+#sidebar {
+  background-color: var(--sidebar-bg) !important;
+  border-right: var(--sidebar-border-right);
+  
+  /* Profile Area */
+  .profile-wrapper {
+    border-bottom: 1px solid #EAEAEA;
+    
+    #avatar {
+        box-shadow: none; /* Remove avatar shadow */
+        border: 1px solid #EAEAEA;
+    }
+    .site-title a {
+        color: #1A1A1A !important; /* Dark title */
+    }
+    .site-subtitle {
+        color: #666666 !important;
+    }
+  }
+  
+  /* Navigation Links */
+  .nav-link {
+    color: var(--nav-key-color) !important;
+  }
+  
+  .nav-link:hover {
+    background-color: var(--nav-hover-bg) !important;
+    color: #000000 !important;
+  }
+  
+  .nav-link.active {
+    color: var(--link-color) !important;
+    background: transparent !important; /* Remove active block background if desired */
+    font-weight: 700;
+  }
+  .nav-link.active i {
+      color: var(--link-color) !important;
+  }
+
+  /* Sidebar Bottom (Social Links) */
+  .sidebar-bottom {
+      border-top: 1px solid #EAEAEA;
+      
+      a {
+          color: #888888 !important;
+      }
+      a:hover {
+          color: var(--link-color) !important;
+      }
+  }
+}
+
+/* Main Content Area */
+.row {
+    /* Optional: Limit width slightly for better reading if needed, but Chirpy handles this well */
+}
+
+/* Cards (Post Previews): Flat & Bordered style */
+.post-preview {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important; /* Remove default card border if any */
+  border-bottom: 1px solid #EAEAEA !important; /* Divider style instead of card style */
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Or if user prefers "Notion Card" style (Boxed but flat): */
+/* 
+.post-preview {
+   border: 1px solid #EAEAEA !important;
+   background: #fff;
+   border-radius: 4px;
+}
+*/
+
+/* Typography Refinements */
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+    letter-spacing: -0.02em; /* Tighter headings for editorial feel */
+    font-weight: 600;
+}
+
+/* Remove Dark Mode Toggle Visibility if we want to enforce light mode 
+   or ensure it works. For now, we only override Light variables. 
+   If user switches to Dark, these won't apply (which is good).
+*/

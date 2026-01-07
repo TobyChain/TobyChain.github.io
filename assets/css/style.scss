@@ -1,5 +1,14 @@
 ---
 ---
 
+/* 1. Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+/* 2. Overridden Variables (MUST be before theme) */
 @import "main/variables";
+
+/* 3. The Main Theme */
 @import "main";
+
+/* 4. CSS Overrides (MUST be after theme to take precedence) */
+@import "main/style-overrides";

@@ -2,6 +2,7 @@
 title: 从0.5到1：如何在AI时代快速搭建自己的LLM理解
 layout: post
 date: 2026-07-10
+permalink: /posts/from-05-to-1-llm-sharing/
 categories: [Blogging, AI]
 tags: [LLM, AI, Learning]
 ---

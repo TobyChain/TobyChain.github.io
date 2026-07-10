@@ -6,15 +6,46 @@ categories: [Blogging, AI]
 tags: [LLM, AI, Learning]
 ---
 
-这是一份面向 AI 时代学习者的技术分享：用最短路径串起从机器学习到大模型的演化线，理解当下模型的核心结构，并搭建一套持续迭代的「用 AI 学 AI」工作流。
+<style>
+  .llm-sharing-frame-wrap {
+    width: min(1180px, calc(100vw - 32px));
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid var(--main-border-color, #e0e0e0);
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+  }
 
-[打开完整分享页面](/sharing/llm-from-05-to-1.html){:target="_blank" .btn .btn-primary}
+  .llm-sharing-frame {
+    display: block;
+    width: 100%;
+    height: min(88vh, 980px);
+    min-height: 760px;
+    border: 0;
+  }
 
-## 内容概览
+  @media (max-width: 768px) {
+    .llm-sharing-frame-wrap {
+      width: calc(100vw - 20px);
+      border-radius: 12px;
+    }
 
-- 快速塑形：从机器学习到大模型
-- 雕刻纹理：当下的大模型长什么样
-- 持续迭代：我的「用 AI 学 AI」工作流
-- 写在最后：如何让理解持续生长
+    .llm-sharing-frame {
+      min-height: 720px;
+    }
+  }
+</style>
 
-完整内容包含独立排版、交互式章节和公式渲染，建议点击上方链接阅读。
+<div class="llm-sharing-frame-wrap">
+  <iframe
+    class="llm-sharing-frame"
+    src="/sharing/llm-from-05-to-1.html"
+    title="从0.5到1：如何在AI时代快速搭建自己的LLM理解"
+    loading="lazy"
+  ></iframe>
+</div>
+
+<p style="text-align:center;margin-top:1rem;">
+  <a href="/sharing/llm-from-05-to-1.html" target="_blank">在独立页面中打开完整分享</a>
+</p>

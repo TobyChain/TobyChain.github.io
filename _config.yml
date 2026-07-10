@@ -14,12 +14,12 @@ timezone:
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: BTechnik # the main title
+title: 滩滩妙妙屋 # the main title
 
-tagline: AI, agents, and frontier technology notes # it will display as the subtitle
+tagline: AI、Agent 与前沿技术笔记 # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  BTechnik is Bingtao Guan's personal technology blog for AI, agents, LLMs, and frontier computing.
+  滩滩妙妙屋是 Bingtao Guan 的个人技术博客，记录 AI、Agent、大模型与前沿计算相关内容。
 
 google_fonts: "family=JetBrains+Mono:wght@400;500;600;700&display=swap"
 

@@ -11,10 +11,11 @@ Ascan 自动汇总 arXiv 论文精选、GitHub 项目挖掘、官方动态、独
 
 ### 最新报告
 
-- [Ascan-20260710](/ascan/reports/Ascan-20260710.html){:target="_blank"}
+- [Ascan-20260715](/ascan/reports/Ascan-20260715.html){:target="_blank"}
 
 ### 归档
 
 | 日期 | 报告 |
 | --- | --- |
+| 2026-07-15 | [HTML](/ascan/reports/Ascan-20260715.html){:target="_blank"} |
 | 2026-07-10 | [HTML](/ascan/reports/Ascan-20260710.html){:target="_blank"} |

@@ -1,6 +1,6 @@
 # 博客更新指南
 
-本博客基于 [Jekyll](https://jekyllrb.com/) 和 [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) 主题构建。以下是更新博客内容的简要指南。
+以下是更新博客内容的简要指南。
 
 ## 1. 发布新文章
 

@@ -297,7 +297,6 @@ flowchart LR
 <h2><span class="num">06</span> 关键代码 + 大白话</h2>
 
 <h3>6.1 Agent 循环的三相位状态机</h3>
-{::nomarkdown}
 <div class="code-pair">
 <pre><code class="language-typescript">// packages/core/agent-loop/src/agent.ts:38-46
 type Phase =
@@ -321,18 +320,16 @@ type Phase =
 <p><code>wakeRequested</code> 标记在当前相位执行期间是否有新输入到达——如果是，循环在当前相位结束后自动继续而不是回到 idle。</p>
 </div>
 </div>
-{:/nomarkdown}
 
 <h3>6.2 Session 事件追加——唯一突变点</h3>
-{::nomarkdown}
 <div class="code-pair">
 <pre><code class="language-typescript">// packages/core/session/src/index.ts:604-655
-append<T extends SessionEventType>(
+append&lt;T extends SessionEventType&gt;(
   type: T,
   data: SessionEventMap[T],
   ...opts: T extends SurfaceEventType
     ? [opts: SurfaceIntent] : []
-): SessionEvent<T> {
+): SessionEvent&lt;T&gt; {
   const dataSnapshot = snapshotJsonValue(data)
   if (dataSnapshot === undefined) {
     throw new Error(
@@ -354,13 +351,11 @@ append<T extends SessionEventType>(
 <p>这种设计意味着：会话日志是<em>不可篡改的审计记录</em>。模型看到的每一条消息都可以从日志精确重建——"模型可见即已记录"不只是口号，而是运行时不变量。</p>
 </div>
 </div>
-{:/nomarkdown}
 
 <h3>6.3 工具并行调度——屏障与滚动池</h3>
-{::nomarkdown}
 <div class="code-pair">
 <pre><code class="language-typescript">// packages/core/agent-loop/src/tool-calls.ts:84-101
-while (next < planned.length) {
+while (next &lt; planned.length) {
   const first = planned[next]!
   const mode = ctx.tools.executionMode(first.exec).kind
   const group = mode === 'parallel'
@@ -386,20 +381,18 @@ while (next < planned.length) {
 <p>结果按<strong>模型顺序</strong>提交——即使工具 B 先于工具 A 完成，结果也按 A、B 顺序写入日志。这保证了模型看到的工具结果顺序与它发出调用顺序一致。</p>
 </div>
 </div>
-{:/nomarkdown}
 
 <h3>6.4 Cordis 事件分发——Waterfall 语义</h3>
-{::nomarkdown}
 <div class="code-pair">
 <pre><code class="language-typescript">// packages/core/agent/src/dispatch.ts:107-149
 export function agentEvents(
   ctx: Context, agent: Agent,
   carrier = agentCarrier(agent),
 ): AgentEventDispatch {
-  const fused = <K extends AgentSubjectEvent>(
-    payload: PayloadRest<K>,
-  ): PayloadOf<K> =>
-    ({ ...payload, agent } as PayloadOf<K>)
+  const fused = &lt;K extends AgentSubjectEvent&gt;(
+    payload: PayloadRest&lt;K&gt;,
+  ): PayloadOf&lt;K&gt; =&gt;
+    ({ ...payload, agent } as PayloadOf&lt;K&gt;)
   return {
     emit(name, payload) {
       ctx.emit(name, fused(payload))
@@ -420,19 +413,17 @@ export function agentEvents(
 <p>Waterfall 是最特殊的模式：监听器收到 payload 和 <code>next</code> 函数，调用 <code>next()</code> 委托给下一个监听器，可以包裹或替换结果。<strong>不调用 <code>next()</code> 则短路整个链</strong>——这是 <code>agent/pre-step</code> 拒绝步骤的机制。</p>
 </div>
 </div>
-{:/nomarkdown}
 
 <h3>6.5 系统提示词组装——作用域合并</h3>
-{::nomarkdown}
 <div class="code-pair">
 <pre><code class="language-typescript">// packages/core/system-prompt/src/index.ts:467-542
 async assemble(
   context: AssembleContext = {},
-): Promise<PromptAssembly> {
+): Promise&lt;PromptAssembly&gt; {
   const scope = context.scope
   const scopeLayers = this.layers.chainLayers(scope)
   // 变量：全局 → 链，最近作用域优先
-  const variables: Record<string, string | undefined> = {}
+  const variables: Record&lt;string, string | undefined&gt; = {}
   for (const [name, provider]
     of this.layers.global.variables.entries())
     variables[name] = provider(context)
@@ -442,9 +433,9 @@ async assemble(
       variables[name] = provider(context)
   // 段落/上下文：作用域覆盖全局
   const sectionByName =
-    this.layers.merge(scope, l => l.sections)
+    this.layers.merge(scope, l =&gt; l.sections)
   const contextByName =
-    this.layers.merge(scope, l => l.contexts)
+    this.layers.merge(scope, l =&gt; l.contexts)
   // 工具 schema 收集
   const collected: ToolSchema[] = []
   for (const provider of providers) {
@@ -459,14 +450,12 @@ async assemble(
 <p>最后还有一个 <code>system-prompt/assemble</code> waterfall，允许专家插件在组装完成后做最终变换。加上 <code>toolOrder</code> 配置控制工具在提示词中的顺序。整个管道是声明式的——插件只需注册段落，不需要知道其他插件的存在。</p>
 </div>
 </div>
-{:/nomarkdown}
 
 <h3>6.6 LLM 流式组装——BlockAssembler</h3>
-{::nomarkdown}
 <div class="code-pair">
 <pre><code class="language-typescript">// packages/llm/llm/src/assembler.ts:36-93
 export class BlockAssembler {
-  private partials = new Map<number, PartialBlock>()
+  private partials = new Map&lt;number, PartialBlock&gt;()
   private order: number[] = []
   push(chunk: StreamChunk): void {
     switch (chunk.type) {
@@ -486,11 +475,11 @@ export class BlockAssembler {
     }
   }
   blocks(): ContentBlock[] {
-    const blocks = this.order.map(idx =>
+    const blocks = this.order.map(idx =&gt;
       this.assemble(this.mustGet(idx), idx),
     )
     return this.finish.kind === 'max-tokens'
-      ? blocks.filter(b => b.type !== 'tool-call')
+      ? blocks.filter(b =&gt; b.type !== 'tool-call')
       : blocks
   }
 }</code></pre>
@@ -500,7 +489,6 @@ export class BlockAssembler {
 <p>一个关键细节：如果 finish reason 是 <code>max-tokens</code>（模型被截断），<strong>丢弃所有 tool-call 块</strong>——因为不完整的工具调用参数无法安全执行。这防止了"模型输出到一半被截断，框架拿着半截 JSON 去调工具"的危险情况。</p>
 </div>
 </div>
-{:/nomarkdown}
 </section>
 
 <section id="sec-7">
@@ -512,48 +500,48 @@ export class BlockAssembler {
 sequenceDiagram
   participant U as 用户
   participant A as ReactLoopAgent
-  participant S as Session 日志
+  participant S as Session
   participant SP as SystemPrompt
   participant L as LlmRuntime
   participant T as ToolRuntime
-  U->>A: send(followup, "帮我读取 package.json"
-  A->>S: append(agent/inbox/spliced
-  A->>A: kick() → turn() → phase=running
-  A->>S: append(turn/start, {turn: 1})
-  A->>A: claim inbox: next-step + next-turn
-  A->>A: agent/pre-step waterfall (enter)
-  A->>S: append(step/start, {turn:1, step:1})
-  A->>S: append(user/message, "帮我读取...")
-  A->>SP: assemble(scope)
-  SP-->>A: PromptAssembly{sections, tools, vars}
-  A->>S: deriveMessages() → 模型历史
-  A->>A: agent/request waterfall
-  A->>L: prepareCall(config)
+  U->>A: followup message
+  A->>S: inbox spliced
+  A->>A: kick to running
+  A->>S: turn start
+  A->>A: claim inbox
+  A->>A: pre-step enter
+  A->>S: step start
+  A->>S: user message
+  A->>SP: assemble scope
+  SP-->>A: PromptAssembly
+  A->>S: deriveMessages
+  A->>A: request waterfall
+  A->>L: prepareCall
   L-->>A: PreparedLlmCall
-  A->>L: stream(request)
-  loop 流式 chunk
-    L-->>A: StreamChunk(text-delta)
-    A->>S: append(assistant/chunk, {chunk}
+  A->>L: stream request
+  loop stream chunks
+    L-->>A: text-delta
+    A->>S: assistant chunk
   end
-  L-->>A: finish(stop)
-  A->>A: BlockAssembler → AssistantMessage
-  A->>S: append(assistant/message, {message, usage}
-  Note over A: 检测到 tool-call: read_file
-  A->>S: append(tool/call, {name:"read_file", args}
-  A->>T: executionMode → parallel
-  A->>T: tools/pre-execute waterfall → allow
-  A->>T: monotonic guards → pass
-  A->>T: tools/execute → tool body
-  T-->>A: ToolExecutionResult(success)
-  A->>T: tools/post-execute → accept
+  L-->>A: finish stop
+  A->>A: BlockAssembler
+  A->>S: assistant message
+  Note over A: tool-call detected
+  A->>S: tool call
+  A->>T: executionMode parallel
+  A->>T: pre-execute allow
+  A->>T: guards pass
+  A->>T: execute body
+  T-->>A: success
+  A->>T: post-execute accept
   A->>T: finalizeContent
-  A->>S: append(tool/result, {message}
-  A->>S: append(step/end, {turn:1, step:1}
-  Note over A: 工具完成，无更多步骤
-  A->>A: agent/turn-stopping (serial)
-  A->>S: append(turn/end, {turn:1, reason:"completed"}
-  A->>A: phase=idle
-  A-->>U: agent/status: idle
+  A->>S: tool result
+  A->>S: step end
+  Note over A: no more steps
+  A->>A: turn-stopping
+  A->>S: turn end completed
+  A->>A: phase idle
+  A-->>U: status idle
 </div>
 
 <p><strong>叙述：</strong>用户调用 <code>agent.followup(message)</code> 将消息放入 Inbox。驱动器 <code>kick()</code> 唤醒，进入 running 相位，打开 Turn 1。驱动器从 Inbox 认领下一步输入和一个排队的 next-turn 提示，运行 <code>agent/pre-step</code> waterfall（监听器可以拒绝或重写消息）。</p>

@@ -297,6 +297,7 @@ flowchart LR
 <h2><span class="num">06</span> 关键代码 + 大白话</h2>
 
 <h3>6.1 Agent 循环的三相位状态机</h3>
+{::nomarkdown}
 <div class="code-pair">
 <pre><code class="language-typescript">// packages/core/agent-loop/src/agent.ts:38-46
 type Phase =
@@ -320,8 +321,10 @@ type Phase =
 <p><code>wakeRequested</code> 标记在当前相位执行期间是否有新输入到达——如果是，循环在当前相位结束后自动继续而不是回到 idle。</p>
 </div>
 </div>
+{:/nomarkdown}
 
 <h3>6.2 Session 事件追加——唯一突变点</h3>
+{::nomarkdown}
 <div class="code-pair">
 <pre><code class="language-typescript">// packages/core/session/src/index.ts:604-655
 append<T extends SessionEventType>(
@@ -351,8 +354,10 @@ append<T extends SessionEventType>(
 <p>这种设计意味着：会话日志是<em>不可篡改的审计记录</em>。模型看到的每一条消息都可以从日志精确重建——"模型可见即已记录"不只是口号，而是运行时不变量。</p>
 </div>
 </div>
+{:/nomarkdown}
 
 <h3>6.3 工具并行调度——屏障与滚动池</h3>
+{::nomarkdown}
 <div class="code-pair">
 <pre><code class="language-typescript">// packages/core/agent-loop/src/tool-calls.ts:84-101
 while (next < planned.length) {
@@ -381,8 +386,10 @@ while (next < planned.length) {
 <p>结果按<strong>模型顺序</strong>提交——即使工具 B 先于工具 A 完成，结果也按 A、B 顺序写入日志。这保证了模型看到的工具结果顺序与它发出调用顺序一致。</p>
 </div>
 </div>
+{:/nomarkdown}
 
 <h3>6.4 Cordis 事件分发——Waterfall 语义</h3>
+{::nomarkdown}
 <div class="code-pair">
 <pre><code class="language-typescript">// packages/core/agent/src/dispatch.ts:107-149
 export function agentEvents(
@@ -413,8 +420,10 @@ export function agentEvents(
 <p>Waterfall 是最特殊的模式：监听器收到 payload 和 <code>next</code> 函数，调用 <code>next()</code> 委托给下一个监听器，可以包裹或替换结果。<strong>不调用 <code>next()</code> 则短路整个链</strong>——这是 <code>agent/pre-step</code> 拒绝步骤的机制。</p>
 </div>
 </div>
+{:/nomarkdown}
 
 <h3>6.5 系统提示词组装——作用域合并</h3>
+{::nomarkdown}
 <div class="code-pair">
 <pre><code class="language-typescript">// packages/core/system-prompt/src/index.ts:467-542
 async assemble(
@@ -450,8 +459,10 @@ async assemble(
 <p>最后还有一个 <code>system-prompt/assemble</code> waterfall，允许专家插件在组装完成后做最终变换。加上 <code>toolOrder</code> 配置控制工具在提示词中的顺序。整个管道是声明式的——插件只需注册段落，不需要知道其他插件的存在。</p>
 </div>
 </div>
+{:/nomarkdown}
 
 <h3>6.6 LLM 流式组装——BlockAssembler</h3>
+{::nomarkdown}
 <div class="code-pair">
 <pre><code class="language-typescript">// packages/llm/llm/src/assembler.ts:36-93
 export class BlockAssembler {
@@ -489,6 +500,7 @@ export class BlockAssembler {
 <p>一个关键细节：如果 finish reason 是 <code>max-tokens</code>（模型被截断），<strong>丢弃所有 tool-call 块</strong>——因为不完整的工具调用参数无法安全执行。这防止了"模型输出到一半被截断，框架拿着半截 JSON 去调工具"的危险情况。</p>
 </div>
 </div>
+{:/nomarkdown}
 </section>
 
 <section id="sec-7">

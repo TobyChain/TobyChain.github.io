@@ -1,5 +1,6 @@
 ---
 title: DeepSeek Harness 架构深度解析
+description: 拆解 DeepSeek Harness 的插件架构、运行时边界与工程取舍。
 layout: post
 date: 2026-08-13
 permalink: /posts/deepseek-harness-analysis/

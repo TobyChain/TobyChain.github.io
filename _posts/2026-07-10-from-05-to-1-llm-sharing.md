@@ -1,5 +1,6 @@
 ---
 title: 从0.5到1：如何在AI时代快速搭建自己的LLM理解
+description: 从机器学习、Transformer 到现代 LLM，建立一条可持续更新的 AI 学习路径。
 layout: post
 date: 2026-07-10
 permalink: /posts/from-05-to-1-llm-sharing/

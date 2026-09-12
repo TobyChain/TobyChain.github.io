@@ -11,12 +11,12 @@ mermaid: true
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/atom-one-light.min.css">
 <style>
-.learn-art-report{--la-ink:#1a1c2c;--la-ink-2:#3b3f5c;--la-ink-3:#6c7395;--la-paper-2:#f3efe5;--la-line:#e6dfcd;--la-accent:#d96f3a;--la-accent-2:#7c5cff;--la-good:#3a8f5d;--la-err:#b03a48;--la-radius:14px;--la-mono:'JetBrains Mono',SFMono-Regular,Menlo,Consolas,monospace}
-.learn-art-report .la-badge{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--la-accent);background:rgba(217,111,58,.08);padding:4px 10px;border-radius:999px;margin-bottom:14px}
+.learn-art-report{--la-ink:var(--heading-color);--la-ink-2:var(--text-color);--la-ink-3:var(--text-muted-color);--la-paper-2:var(--sidebar-bg);--la-line:var(--main-border-color);--la-accent:var(--link-color);--la-accent-2:var(--link-color);--la-good:#568b5d;--la-err:#b55d62;--la-radius:14px;--la-mono:'JetBrains Mono',SFMono-Regular,Menlo,Consolas,monospace}
+.learn-art-report .la-badge{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--la-accent);background:color-mix(in srgb,var(--la-accent) 10%,transparent);padding:4px 10px;border-radius:999px;margin-bottom:14px}
 .learn-art-report .la-subtitle{font-size:17px;color:var(--la-ink-2);margin:0 0 32px;line-height:1.6}
 .learn-art-report section{margin:0 0 48px;scroll-margin-top:24px}
 .learn-art-report section h2{font-size:24px;font-weight:700;margin:0 0 20px;padding-bottom:8px;border-bottom:1px solid var(--la-line);display:flex;align-items:baseline;gap:14px}
-.learn-art-report section h2 .num{font-family:var(--la-mono);font-size:13px;color:var(--la-accent);background:rgba(217,111,58,.08);padding:3px 9px;border-radius:6px;font-weight:500}
+.learn-art-report section h2 .num{font-family:var(--la-mono);font-size:13px;color:var(--la-accent);background:color-mix(in srgb,var(--la-accent) 10%,transparent);padding:3px 9px;border-radius:6px;font-weight:500}
 .learn-art-report section h3{font-size:18px;font-weight:500;margin:28px 0 10px;color:var(--la-ink)}
 .learn-art-report section p{margin:0 0 14px}
 .learn-art-report section ul,.learn-art-report section ol{padding-left:22px;margin:0 0 16px}
@@ -24,19 +24,25 @@ mermaid: true
 .learn-art-report table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px}
 .learn-art-report th,.learn-art-report td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--la-line)}
 .learn-art-report th{background:var(--la-paper-2);font-weight:500;color:var(--la-ink-2);font-size:13px;letter-spacing:.02em}
-.learn-art-report tr:hover td{background:rgba(217,111,58,.03)}
+.learn-art-report tr:hover td{background:color-mix(in srgb,var(--la-accent) 5%,transparent)}
 .learn-art-report pre,.learn-art-report code{font-family:var(--la-mono)}
 .learn-art-report :not(pre)>code{background:var(--la-paper-2);padding:2px 6px;border-radius:4px;font-size:13.5px;color:var(--la-ink)}
-.learn-art-report pre{margin:14px 0;padding:18px 20px;background:#fdfcf7;border:1px solid var(--la-line);border-radius:var(--la-radius);overflow:auto;font-size:13.5px;line-height:1.6}
+.learn-art-report pre{margin:14px 0;padding:18px 20px;background:var(--sidebar-bg);border:1px solid var(--la-line);border-radius:var(--la-radius);overflow:auto;font-size:13.5px;line-height:1.6}
 .learn-art-report pre code{background:transparent;padding:0;font-size:inherit;color:var(--la-ink)}
 .learn-art-report .code-pair{display:grid;grid-template-columns:1.05fr 1fr;gap:16px;margin:18px 0}
 .learn-art-report .code-pair pre{margin:0}
-.learn-art-report .code-pair .explain{background:rgba(124,92,255,.045);border:1px solid rgba(124,92,255,.18);border-radius:var(--la-radius);padding:16px 18px;font-size:14.5px;line-height:1.7;color:var(--la-ink-2);position:relative}
-.learn-art-report .code-pair .explain::before{content:'大白话';display:inline-block;font-size:11px;letter-spacing:.12em;color:var(--la-accent-2);font-weight:500;background:#fff;padding:2px 8px;border-radius:999px;margin-bottom:10px}
+.learn-art-report .code-pair .explain{background:color-mix(in srgb,var(--la-accent) 5%,transparent);border:1px solid color-mix(in srgb,var(--la-accent) 22%,transparent);border-radius:var(--la-radius);padding:16px 18px;font-size:14.5px;line-height:1.7;color:var(--la-ink-2);position:relative}
+.learn-art-report .code-pair .explain::before{content:'大白话';display:inline-block;font-size:11px;letter-spacing:.12em;color:var(--la-accent-2);font-weight:500;background:var(--main-bg);padding:2px 8px;border-radius:999px;margin-bottom:10px}
 .learn-art-report .code-pair .explain p{margin:0 0 8px}
 .learn-art-report .code-pair .explain p:last-child{margin:0}
 @media (max-width:900px){.learn-art-report .code-pair{grid-template-columns:1fr}}
-.learn-art-report .mermaid{margin:20px 0;padding:22px;text-align:center;background:#fdfcf7;border:1px solid var(--la-line);border-radius:var(--la-radius)}
+.learn-art-report .mermaid{margin:20px 0;padding:22px;text-align:center;background:var(--sidebar-bg);border:1px solid var(--la-line);border-radius:var(--la-radius)}
+.learn-art-report .mermaid svg{max-width:100%;height:auto}
+.learn-art-report .mermaid .node rect,.learn-art-report .mermaid .node circle,.learn-art-report .mermaid .node ellipse,.learn-art-report .mermaid .node polygon,.learn-art-report .mermaid .actor{fill:var(--main-bg)!important;stroke:var(--link-color)!important}
+.learn-art-report .mermaid .cluster rect,.learn-art-report .mermaid .note{fill:var(--sidebar-bg)!important;stroke:var(--main-border-color)!important}
+.learn-art-report .mermaid .edgePath .path,.learn-art-report .mermaid .flowchart-link,.learn-art-report .mermaid .actor-line,.learn-art-report .mermaid .messageLine0,.learn-art-report .mermaid .messageLine1{stroke:var(--text-muted-color)!important}
+.learn-art-report .mermaid marker path{fill:var(--text-muted-color)!important;stroke:var(--text-muted-color)!important}
+.learn-art-report .mermaid text,.learn-art-report .mermaid .label,.learn-art-report .mermaid .nodeLabel,.learn-art-report .mermaid .messageText,.learn-art-report .mermaid .noteText{fill:var(--text-color)!important;color:var(--text-color)!important}
 .learn-art-report .la-footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--la-line);color:var(--la-ink-3);font-size:13px;line-height:1.7}
 .learn-art-report .la-footer a{color:var(--la-ink-3)}
 </style>
@@ -122,37 +128,37 @@ mermaid: true
 
 <p>DeepSeek Harness 是一个 pnpm monorepo，包含 ~50+ 个 <code>@deepseek-ai/dsh-*</code> 包。整体架构分为四层：vendored Cordis 框架层 → 核心包层（core/） → 能力包层（llm/shell/fs/...） → 组装层（bundle/app）。以下架构图展示全局模块关系。</p>
 
-<div class="mermaid">
+<pre><code class="language-mermaid">
 flowchart TB
   subgraph CLI["CLI 入口层"]
-    APP[apps/cli<br/>dsh 命令行]
-    BOOT[boot/app-boot<br/>启动组装]
+    APP[apps/cli&lt;br/&gt;dsh 命令行]
+    BOOT[boot/app-boot&lt;br/&gt;启动组装]
   end
   subgraph Bundle["组装层"]
-    BASE[dsh-base<br/>基础 bundle]
-    WEB[dsh-web-app<br/>Web UI bundle]
-    HEAD[dsh-headless<br/>无头 bundle]
+    BASE[dsh-base&lt;br/&gt;基础 bundle]
+    WEB[dsh-web-app&lt;br/&gt;Web UI bundle]
+    HEAD[dsh-headless&lt;br/&gt;无头 bundle]
   end
   subgraph Core["核心包层 packages/core/"]
-    SESSION[session<br/>事件溯源会话日志]
-    SYSPROMPT[system-prompt<br/>提示词组装]
-    TOOLS[tools<br/>工具注册表+执行管道]
-    AGENT[agent<br/>Agent 接口+注册表]
-    LOOP[agent-loop<br/>具体驱动实现]
-    SCOPE[scope<br/>每 Agent 作用域]
+    SESSION[session&lt;br/&gt;事件溯源会话日志]
+    SYSPROMPT[system-prompt&lt;br/&gt;提示词组装]
+    TOOLS[tools&lt;br/&gt;工具注册表+执行管道]
+    AGENT[agent&lt;br/&gt;Agent 接口+注册表]
+    LOOP[agent-loop&lt;br/&gt;具体驱动实现]
+    SCOPE[scope&lt;br/&gt;每 Agent 作用域]
   end
   subgraph Cap["能力包层"]
-    LLM[llm<br/>模型适配器]
-    SHELL[shell<br/>Shell 能力]
-    FS[fs<br/>文件系统能力]
-    SUBPROC[subprocess<br/>子进程能力]
-    WEB_CAP[web<br/>Web 搜索/抓取]
-    SUBAGENT[subagent<br/>子 Agent 能力]
-    SANDBOX[sandbox<br/>沙箱隔离]
-    COMPACT[compaction<br/>上下文压缩]
+    LLM[llm&lt;br/&gt;模型适配器]
+    SHELL[shell&lt;br/&gt;Shell 能力]
+    FS[fs&lt;br/&gt;文件系统能力]
+    SUBPROC[subprocess&lt;br/&gt;子进程能力]
+    WEB_CAP[web&lt;br/&gt;Web 搜索/抓取]
+    SUBAGENT[subagent&lt;br/&gt;子 Agent 能力]
+    SANDBOX[sandbox&lt;br/&gt;沙箱隔离]
+    COMPACT[compaction&lt;br/&gt;上下文压缩]
   end
   subgraph Vendor["vendored Cordis 框架"]
-    CORDIS["@deepseek-ai/cordis<br/>插件框架"]
+    CORDIS["@deepseek-ai/cordis&lt;br/&gt;插件框架"]
   end
   APP --> BOOT
   BOOT --> BASE
@@ -162,7 +168,7 @@ flowchart TB
   Core --> Cap
   Core --> CORDIS
   Cap --> CORDIS
-</div>
+</code></pre>
 
 <h3>4.1 核心包层（packages/core/）——产品 API 脊柱</h3>
 
@@ -273,7 +279,7 @@ flowchart TB
 <p><strong>关键细节</strong>：补丁替换整个行配置——覆盖必须重述每个字段，没有深度合并。平台门控在 patch 文件中自包含——bash 在 Windows 上 <code>disabled: !!js process.platform === 'win32'</code>，pwsh 反之。一个共享 patch 文件，每个主机恰好一个 shell 栈。</p>
 <p><strong>源码定位</strong>：<code>packages/bundle/base/README.md</code>、<code>packages/boot/app-boot/README.md</code>、<code>apps/cli/src/profile-boot.ts</code>。</p>
 
-<div class="mermaid">
+<pre><code class="language-mermaid">
 flowchart LR
   A[核心抽象关系]
   A --> B[能力接缝]
@@ -291,7 +297,7 @@ flowchart LR
   D -->|组装自| B
   H -->|组装| B
   H -->|组装| D
-</div>
+</code></pre>
 </section>
 
 <section id="sec-6">
@@ -497,7 +503,7 @@ export class BlockAssembler {
 
 <p>以下追踪一个完整的 happy-path：用户发送一条消息，Agent 执行一步模型请求 + 工具调用，最终返回结果。</p>
 
-<div class="mermaid">
+<pre><code class="language-mermaid">
 sequenceDiagram
   participant U as 用户
   participant A as ReactLoopAgent
@@ -543,7 +549,7 @@ sequenceDiagram
   A->>S: turn end completed
   A->>A: phase idle
   A-->>U: status idle
-</div>
+</code></pre>
 
 <p><strong>叙述：</strong>用户调用 <code>agent.followup(message)</code> 将消息放入 Inbox。驱动器 <code>kick()</code> 唤醒，进入 running 相位，打开 Turn 1。驱动器从 Inbox 认领下一步输入和一个排队的 next-turn 提示，运行 <code>agent/pre-step</code> waterfall（监听器可以拒绝或重写消息）。</p>
 
@@ -642,21 +648,6 @@ sequenceDiagram
 </div>
 
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 <script>
-document.querySelectorAll('.learn-art-report pre code').forEach(b => window.hljs && hljs.highlightElement(b));
-if (window.mermaid) {
-  mermaid.initialize({
-    startOnLoad: true,
-    theme: 'base',
-    themeVariables: {
-      primaryColor:'#fdfcf7',
-      primaryTextColor:'#1a1c2c',
-      primaryBorderColor:'#d96f3a',
-      lineColor:'#6c7395',
-      fontFamily:'Noto Sans SC, sans-serif'
-    },
-    flowchart:{ curve:'basis' }
-  });
-}
+document.querySelectorAll('.learn-art-report pre code:not(.language-mermaid)').forEach(b => window.hljs && hljs.highlightElement(b));
 </script>

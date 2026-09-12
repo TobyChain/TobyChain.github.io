@@ -1,94 +1,70 @@
-/* A quiet reading surface with one warm accent. */
+/* A neutral reading surface with one warm accent. */
 :root,
-html[data-mode='light'] {
-  --main-bg: #faf8f3;
-  --mask-bg: #faf8f3;
-  --main-border-color: #e7e1d7;
-  --text-color: #2d2b28;
-  --text-muted-color: #746f66;
-  --text-muted-highlight-color: #4e4a43;
-  --heading-color: #201f1c;
-  --label-color: #605b53;
-  --link-color: #a24f3f;
-  --link-underline-color: #d8b8ad;
-  --sidebar-bg: #f3efe7;
-  --sidebar-border-color: #e5ded2;
-  --sidebar-muted-color: #6e685f;
-  --sidebar-active-color: #9b493a;
-  --sidebar-hover-bg: rgb(162 79 63 / 8%);
-  --sidebar-btn-bg: #faf8f3;
-  --sidebar-btn-color: #756f66;
-  --site-title-color: #292722;
-  --site-subtitle-color: #746f66;
-  --avatar-border-color: #e1d8ca;
-  --topbar-bg: rgb(250 248 243 / 88%);
-  --topbar-text-color: #4e4a43;
+:root[data-bs-theme='light'] {
+  --main-bg: #f7f7f5;
+  --mask-bg: #f7f7f5;
+  --main-border-color: #deded9;
+  --text-color: #353535;
+  --text-muted-color: #717171;
+  --text-muted-highlight-color: #4b4b4b;
+  --heading-color: #151515;
+  --label-color: #555555;
+  --link-color: #946613;
+  --link-underline-color: #d7bd89;
+  --sidebar-bg: #ececea;
+  --sidebar-border-color: #dbdbd7;
+  --sidebar-muted-color: #666666;
+  --sidebar-active-color: #80570d;
+  --sidebar-hover-bg: rgb(212 158 54 / 16%);
+  --sidebar-btn-bg: #f7f7f5;
+  --sidebar-btn-color: #6d6d6d;
+  --site-title-color: #181818;
+  --site-subtitle-color: #686868;
+  --avatar-border-color: #d0d0cc;
+  --topbar-bg: rgb(247 247 245 / 90%);
+  --topbar-text-color: #454545;
+  --toc-highlight: #946613;
+  --checkbox-checked-color: #c28a22;
+  --btn-share-hover-color: #946613;
   --card-bg: transparent;
   --card-hover-bg: transparent;
   --card-shadow: none;
 }
 
-html[data-mode='dark'] {
-  --main-bg: #1c1b1a;
-  --mask-bg: #1c1b1a;
-  --main-border-color: #35322e;
-  --text-color: #d0c8bc;
-  --text-muted-color: #9b9286;
-  --text-muted-highlight-color: #c1b8aa;
-  --heading-color: #eee7dc;
-  --label-color: #b3aa9e;
-  --link-color: #e4947f;
-  --link-underline-color: #80574c;
-  --sidebar-bg: #211f1d;
-  --sidebar-border-color: #35322e;
-  --sidebar-muted-color: #9b9286;
-  --sidebar-active-color: #eea08b;
-  --sidebar-hover-bg: rgb(228 148 127 / 9%);
-  --sidebar-btn-bg: #292724;
-  --sidebar-btn-color: #a69d90;
-  --site-title-color: #eee7dc;
-  --site-subtitle-color: #a69d90;
-  --avatar-border-color: #403c36;
-  --topbar-bg: rgb(28 27 26 / 88%);
-  --topbar-text-color: #c1b8aa;
+:root[data-bs-theme='dark'] {
+  --main-bg: #181818;
+  --mask-bg: #181818;
+  --main-border-color: #343434;
+  --text-color: #cececa;
+  --text-muted-color: #929292;
+  --text-muted-highlight-color: #bdbdb8;
+  --heading-color: #f0f0ec;
+  --label-color: #b0b0ac;
+  --link-color: #d9a43f;
+  --link-underline-color: #725c32;
+  --sidebar-bg: #111111;
+  --sidebar-border-color: #303030;
+  --sidebar-muted-color: #969696;
+  --sidebar-active-color: #e4b557;
+  --sidebar-hover-bg: rgb(224 173 79 / 12%);
+  --sidebar-btn-bg: #222222;
+  --sidebar-btn-color: #a0a0a0;
+  --site-title-color: #f1f1ed;
+  --site-subtitle-color: #9c9c9c;
+  --avatar-border-color: #444444;
+  --topbar-bg: rgb(24 24 24 / 90%);
+  --topbar-text-color: #c2c2bd;
+  --toc-highlight: #d9a43f;
+  --checkbox-checked-color: #d9a43f;
+  --btn-share-hover-color: #d9a43f;
   --card-bg: transparent;
   --card-hover-bg: transparent;
   --card-shadow: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html:not([data-mode]) {
-    --main-bg: #1c1b1a;
-    --mask-bg: #1c1b1a;
-    --main-border-color: #35322e;
-    --text-color: #d0c8bc;
-    --text-muted-color: #9b9286;
-    --text-muted-highlight-color: #c1b8aa;
-    --heading-color: #eee7dc;
-    --label-color: #b3aa9e;
-    --link-color: #e4947f;
-    --link-underline-color: #80574c;
-    --sidebar-bg: #211f1d;
-    --sidebar-border-color: #35322e;
-    --sidebar-muted-color: #9b9286;
-    --sidebar-active-color: #eea08b;
-    --sidebar-hover-bg: rgb(228 148 127 / 9%);
-    --sidebar-btn-bg: #292724;
-    --sidebar-btn-color: #a69d90;
-    --site-title-color: #eee7dc;
-    --site-subtitle-color: #a69d90;
-    --avatar-border-color: #403c36;
-    --topbar-bg: rgb(28 27 26 / 88%);
-    --topbar-text-color: #c1b8aa;
-    --card-bg: transparent;
-    --card-hover-bg: transparent;
-    --card-shadow: none;
-  }
 }
 
 body {
-  font-family: 'Kalam', 'LXGW WenKai Mono GB Screen', 'PingFang SC',
-    'Microsoft YaHei', sans-serif;
+  font-family: 'JetBrains Mono', 'Source Han Sans SC VF', 'Source Han Sans SC',
+    'Noto Sans CJK SC', 'PingFang SC', sans-serif;
   font-size: 1.02rem;
   line-height: 1.75;
 }
@@ -102,15 +78,15 @@ h6,
 .site-title,
 .nav-link,
 .post-meta {
-  font-family: 'Kalam', 'LXGW WenKai Mono GB Screen', 'PingFang SC',
-    'Microsoft YaHei', sans-serif;
+  font-family: 'JetBrains Mono', 'Source Han Sans SC VF', 'Source Han Sans SC',
+    'Noto Sans CJK SC', 'PingFang SC', sans-serif;
 }
 
 code,
 pre,
 kbd,
 samp {
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  font-family: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
 }
 
 #sidebar {

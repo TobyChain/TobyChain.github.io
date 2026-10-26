@@ -51,6 +51,7 @@
   if (!els.meltA) return;
 
   var meltBase = els.meltA.getAttribute('data-melt-base') || '/assets/img/thaw/';
+  var meltVersion = els.meltA.getAttribute('data-melt-version') || '';
 
   var dateParts = new Intl.DateTimeFormat('en-CA', {
     timeZone: 'Asia/Shanghai',
@@ -123,7 +124,8 @@
   var meltToken = 0;
 
   function meltSrc(level) {
-    return meltBase + 'melt-' + pad2(level) + '.jpg';
+    var version = meltVersion ? '?v=' + meltVersion : '';
+    return meltBase + 'melt-' + pad2(level) + '.jpg' + version;
   }
 
   function setMelt(progress, initial) {

@@ -1,0 +1,79 @@
+---
+layout: standalone
+title: 解冻
+icon: fas fa-snowflake
+order: 3
+permalink: /NaGeNanRen/
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#041019">
+    <title>那个男人的解冻进度</title>
+    <meta name="description" content="那个男人的解冻进度">
+    <link rel="icon" type="image/png" href="{{ '/assets/img/favicons/favicon-96x96.png' | relative_url }}" sizes="96x96">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="{{ '/assets/css/thaw.css' | relative_url }}">
+  </head>
+  <body class="thaw-page">
+    <div class="thaw-bg" aria-hidden="true"></div>
+
+    <a class="thaw-back" href="{{ '/' | relative_url }}" aria-label="返回主页">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M15 5l-7 7 7 7"></path>
+      </svg>
+    </a>
+
+    <button
+      class="thaw-sound"
+      id="thaw-sound"
+      type="button"
+      aria-pressed="false"
+      aria-label="开启恭喜发财音乐"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path class="speaker" d="M4 9.5v5h3.6l4.4 3.6V5.9L7.6 9.5H4z"></path>
+        <path class="wave wave-1" d="M15.2 9.2a4.2 4.2 0 0 1 0 5.6"></path>
+        <path class="wave wave-2" d="M17.8 6.8a7.8 7.8 0 0 1 0 10.4"></path>
+        <path class="slash" d="M4 4l16 16"></path>
+      </svg>
+    </button>
+
+    <main class="thaw-stage">
+      <h1 class="thaw-title">那个男人的解冻进度</h1>
+
+      <figure class="thaw-visual">
+        <div class="thaw-image-frame">
+          <img
+            class="thaw-melt is-visible"
+            id="thaw-melt-a"
+            src="{{ '/assets/img/thaw/melt-00.jpg' | relative_url }}"
+            data-melt-base="{{ '/assets/img/thaw/' | relative_url }}"
+            alt="那个男人的解冻过程"
+            width="1080"
+            height="1116"
+            fetchpriority="high"
+          >
+          <img class="thaw-melt" id="thaw-melt-b" src="{{ '/assets/img/thaw/melt-00.jpg' | relative_url }}" alt="" aria-hidden="true" width="1080" height="1116">
+        </div>
+      </figure>
+
+      <section class="thaw-countdown" aria-label="距离下一个春节的时间">
+        <p class="thaw-countdown-label" id="thaw-countdown-label">距离 <b id="thaw-next-year">2027</b> 年春节还有</p>
+        <div class="thaw-digits">
+          <div class="thaw-digit"><b id="cd-days">103</b><span>天</span></div>
+          <div class="thaw-digit"><b id="cd-hours">00</b><span>时</span></div>
+          <div class="thaw-digit"><b id="cd-minutes">00</b><span>分</span></div>
+          <div class="thaw-digit"><b id="cd-seconds">00</b><span>秒</span></div>
+        </div>
+      </section>
+    </main>
+
+    <audio id="thaw-audio" src="{{ '/assets/music/gongxifacai-hazy.mp3' | relative_url }}" loop preload="auto"></audio>
+    <script defer src="{{ '/assets/js/thaw.js' | relative_url }}"></script>
+  </body>
+</html>
